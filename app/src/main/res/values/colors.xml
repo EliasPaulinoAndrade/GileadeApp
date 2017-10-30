@@ -7,4 +7,6 @@
     <color name="marrom">#5e3f47</color>
     <color name="branco">#ffffff</color>
     <color name="azulescuro">#637197</color>
+    <color name="bege">#ebe4ee</color>
+    <color name="trans">#7F000000</color>
 </resources>

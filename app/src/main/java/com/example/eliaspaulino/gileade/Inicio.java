@@ -3,6 +3,7 @@ package com.example.eliaspaulino.gileade;
 import android.animation.Animator;
 import android.animation.LayoutTransition;
 import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -41,5 +42,7 @@ public class Inicio extends Activity {
         int[] local = new int[2];
         view.getLocationInWindow(local);
         animacaoCircular(conteinerPagina, local[0] + view.getWidth()/2, local[1] + view.getHeight()/2);
+        Intent intent = new Intent(this, Eventos.class);
+        startActivity(intent);
     }
 }
