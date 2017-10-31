@@ -80,7 +80,6 @@
             android:paddingBottom="20dp"
             android:weightSum="3">
             <RelativeLayout
-                android:onClick="calendarioClique"
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground"
@@ -104,6 +103,7 @@
                     android:gravity="center"/>
             </RelativeLayout>
             <RelativeLayout
+                android:onClick="eventosClique"
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground"
@@ -127,6 +127,7 @@
                     android:gravity="center"/>
             </RelativeLayout>
             <RelativeLayout
+                android:onClick="pgsClique"
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground"
@@ -181,6 +182,7 @@
                     android:gravity="center"/>
             </RelativeLayout>
             <RelativeLayout
+                android:onClick="lideresClique"
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground"
@@ -204,6 +206,7 @@
                     android:gravity="center"/>
             </RelativeLayout>
             <RelativeLayout
+                android:onClick="igrejaClique"
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground"

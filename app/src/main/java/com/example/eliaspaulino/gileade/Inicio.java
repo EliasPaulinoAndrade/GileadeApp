@@ -1,18 +1,13 @@
 package com.example.eliaspaulino.gileade;
 
 import android.animation.Animator;
-import android.animation.LayoutTransition;
 import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.view.ViewCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 
 public class Inicio extends Activity {
 
@@ -38,11 +33,29 @@ public class Inicio extends Activity {
         view.setVisibility(View.VISIBLE);
         circularReveal.start();
     }
-    public void calendarioClique(View view){
+    public void circularAnim(View view){
         int[] local = new int[2];
         view.getLocationInWindow(local);
         animacaoCircular(conteinerPagina, local[0] + view.getWidth()/2, local[1] + view.getHeight()/2);
+    }
+    public void pgsClique(View view){
+        circularAnim(view);
+        Intent intent = new Intent(this, Pgs.class);
+        startActivity(intent);
+    }
+    public void lideresClique(View view){
+        circularAnim(view);
+        Intent intent = new Intent(this, Lideres.class);
+        startActivity(intent);
+    }
+    public void eventosClique(View view){
+        circularAnim(view);
         Intent intent = new Intent(this, Eventos.class);
+        startActivity(intent);
+    }
+    public void igrejaClique(View view){
+        circularAnim(view);
+        Intent intent = new Intent(this, Igreja.class);
         startActivity(intent);
     }
 }

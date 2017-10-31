@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
@@ -18,11 +18,17 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Eventos" android:label="">
+        <activity
+            android:name=".Pgs"
+            android:label="">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Inicio" />
         </activity>
+        <activity android:name=".Lideres" />
+        <activity android:name=".Eventos" />
+        <activity android:name=".Igreja" />
+        <activity android:name=".Calendario"></activity>
     </application>
 
 </manifest>
