@@ -80,6 +80,7 @@
             android:paddingBottom="20dp"
             android:weightSum="3">
             <RelativeLayout
+                android:onClick="calendarioClique"
                 android:clickable="true"
                 android:focusable="true"
                 android:background="?attr/selectableItemBackground"

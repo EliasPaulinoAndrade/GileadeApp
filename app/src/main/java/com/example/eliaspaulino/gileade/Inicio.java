@@ -58,4 +58,9 @@ public class Inicio extends Activity {
         Intent intent = new Intent(this, Igreja.class);
         startActivity(intent);
     }
+    public void calendarioClique(View view){
+        circularAnim(view);
+        Intent intent = new Intent(this, Calendario.class);
+        startActivity(intent);
+    }
 }

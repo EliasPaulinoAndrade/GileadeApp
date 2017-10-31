@@ -1,9 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.eliaspaulino.gileade.Calendario">
+    android:background="@color/bege"
+    android:orientation="vertical"
+    tools:context="com.example.eliaspaulino.gileade.Pgs">
+    <android.support.v7.widget.Toolbar
 
-</android.support.constraint.ConstraintLayout>
+        android:elevation="4dp"
+        android:id="@+id/my_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+        <TextView
+            android:layout_marginRight="?attr/actionBarSize"
+            android:id="@+id/main_toolbar_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="werw"
+            android:textColor="@color/branco"
+            android:textAllCaps="true"
+            android:layout_gravity="center"
+            android:gravity="center" />
+    </android.support.v7.widget.Toolbar>
+    <LinearLayout
+        android:elevation="4dp"
+        android:weightSum="7"
+        android:padding="10dp"
+        android:background="@color/azulescuro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.FloatingActionButton
+                android:visibility="invisible"
+                app:backgroundTint="@color/branco"
+                android:elevation="0dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:elevation="16dp"
+                android:textColor="@color/branco"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Se"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.FloatingActionButton
+                android:visibility="invisible"
+                app:backgroundTint="@color/branco"
+                android:elevation="0dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:elevation="16dp"
+                android:textColor="@color/branco"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Te"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.FloatingActionButton
+                app:backgroundTint="@color/branco"
+                android:visibility="invisible"
+                android:elevation="0dp"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:elevation="16dp"
+                android:textColor="@color/branco"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Qu"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.FloatingActionButton
+                app:backgroundTint="@color/branco"
+                android:visibility="invisible"
+                android:elevation="0dp"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:elevation="16dp"
+                android:textColor="@color/branco"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Qn"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.FloatingActionButton
+                android:layout_gravity="center"
+                app:backgroundTint="@color/branco"
+                android:elevation="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:elevation="16dp"
+                android:textColor="@color/azulescuro"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sx"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.FloatingActionButton
+                app:backgroundTint="@color/branco"
+                android:visibility="invisible"
+                android:layout_gravity="center"
+                android:elevation="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:elevation="16dp"
+                android:textColor="@color/branco"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sb"/>
+        </FrameLayout>
+        <FrameLayout
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.FloatingActionButton
+                app:backgroundTint="@color/branco"
+                android:visibility="invisible"
+                android:layout_gravity="center"
+                android:elevation="0dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:elevation="16dp"
+                android:textColor="@color/branco"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Do"/>
+        </FrameLayout>
+    </LinearLayout>
+</LinearLayout>

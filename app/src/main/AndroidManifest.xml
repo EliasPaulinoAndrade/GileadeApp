@@ -25,10 +25,26 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Inicio" />
         </activity>
-        <activity android:name=".Lideres" />
-        <activity android:name=".Eventos" />
-        <activity android:name=".Igreja" />
-        <activity android:name=".Calendario"></activity>
+        <activity android:name=".Lideres" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Inicio" />
+        </activity>
+        <activity android:name=".Eventos" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Inicio" />
+        </activity>
+        <activity android:name=".Igreja" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Inicio" />
+        </activity>
+        <activity android:name=".Calendario">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Inicio" />
+        </activity>
     </application>
 
 </manifest>
