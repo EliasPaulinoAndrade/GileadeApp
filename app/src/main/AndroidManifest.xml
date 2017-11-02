@@ -40,7 +40,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Inicio" />
         </activity>
-        <activity android:name=".Calendario">
+        <activity android:name=".Calendario" android:screenOrientation="portrait">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Inicio" />

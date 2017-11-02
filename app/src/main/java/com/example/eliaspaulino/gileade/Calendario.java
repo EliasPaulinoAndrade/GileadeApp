@@ -1,30 +1,28 @@
 package com.example.eliaspaulino.gileade;
 
+import android.app.Fragment;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.eliaspaulino.gileade.adaptadores.CalendarioAdaptador;
-import com.example.eliaspaulino.gileade.adaptadores.LideresAdaptador;
+import com.example.eliaspaulino.gileade.fragmentos.FragmentoCalSemanaExpandido;
 import com.example.eliaspaulino.gileade.fragmentos.FragmentoCalendario;
-import com.example.eliaspaulino.gileade.models.HorarioDia;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.eliaspaulino.gileade.fragmentos.FragmentoCalendarioSemana;
 
 public class Calendario extends AppCompatActivity {
     private TextView titulo;
     private Toolbar toolbar;
+    private Boolean calendarioExpandido;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,17 +37,26 @@ public class Calendario extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        trocarFragmento(1);
+        //trocarDia(0);
+        calendarioExpandido = false;
     }
-    private void trocarFragmento(Integer dia){
+    private void trocarDia(Integer dia){
         FragmentoCalendario fragment = new FragmentoCalendario();
         Bundle bundle = new Bundle();
         bundle.putInt("dia", dia);
         fragment.setArguments(bundle);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left, android.R.anim.slide_out_right);
         fragmentTransaction.replace(R.id.fragmentoCalendario, fragment);
         fragmentTransaction.commit();
+    }
+    private void mudarCalendario(android.support.v4.app.Fragment fragment){
+        trocarDia(0);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragmentoSemanas, fragment);
+        transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
+        transaction.commit();
     }
     public void diaClique(View view){
         ViewGroup grupo = (ViewGroup) view.getParent();
@@ -74,7 +81,7 @@ public class Calendario extends AppCompatActivity {
                 ((TextView) frame.getChildAt(i)).setTextColor(getResources().getColor(R.color.azulescuro));
             }
         }
-        trocarFragmento(grupo.indexOfChild(view));
+        trocarDia(grupo.indexOfChild(view));
     }
     public void diaCliqueExpand(View view){
         ViewGroup linearPai = (ViewGroup) view.getParent();
@@ -89,6 +96,30 @@ public class Calendario extends AppCompatActivity {
         }
         ((TextView) view).setBackgroundDrawable(getResources().getDrawable(R.drawable.fundohoraselec));
         ((TextView) view).setTextColor(getResources().getColor(R.color.azulescuro));
-        trocarFragmento(index);
+        trocarDia(index);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        if(item.getItemId() == R.id.expandir){
+            android.support.v4.app.Fragment fragment;
+            if(calendarioExpandido){
+                item.setIcon(R.mipmap.expandir);
+                fragment = new FragmentoCalendarioSemana();
+            }
+            else{
+                item.setIcon(R.mipmap.diminuir);
+                fragment = new FragmentoCalSemanaExpandido();
+            }
+            calendarioExpandido = !calendarioExpandido;
+            mudarCalendario(fragment);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
