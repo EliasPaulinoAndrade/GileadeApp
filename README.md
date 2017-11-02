@@ -3,6 +3,7 @@
 Aplicativo feito voluntáriamente para igreja cristã Gíleade da Granja Portugal como estudo front e back-end. 
 
 ## Tecnologias
+* Inkscape (https://inkscape.org/pt-br/baixar/)
 * Framework Laravel >5
 * Android Studio 2.3.1
 
