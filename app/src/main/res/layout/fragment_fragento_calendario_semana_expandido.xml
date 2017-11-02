@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:elevation="1dp"
+    android:elevation="4dp"
     android:padding="5dp"
     android:background="@color/azulescuro"
     tools:context="com.example.eliaspaulino.gileade.fragmentos.FragmentoCalSemanaExpandido">

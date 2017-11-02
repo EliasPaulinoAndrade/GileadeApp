@@ -8,7 +8,9 @@
     android:orientation="vertical"
     android:id="@+id/calendarioLayout"
     tools:context="com.example.eliaspaulino.gileade.Pgs">
-    <android.support.v7.widget.Toolbar
+    <include
+        layout="@layout/tool_bar"></include>
+    <!--<android.support.v7.widget.Toolbar
         android:elevation="4dp"
         android:id="@+id/my_toolbar"
         android:layout_width="match_parent"
@@ -28,7 +30,7 @@
             android:textAllCaps="true"
             android:layout_gravity="center"
             android:gravity="center" />
-    </android.support.v7.widget.Toolbar>
+    </android.support.v7.widget.Toolbar>-->
     <fragment
         android:id="@+id/fragmentoSemanas"
         android:layout_width="match_parent"
@@ -37,12 +39,10 @@
         tools:layout="@layout/fragment_fragmento_calendario_semana"
         android:layout="@layout/fragment_fragmento_calendario_semana">
     </fragment>
-    <fragment
-       android:id="@+id/fragmentoCalendario"
-       android:layout_width="match_parent"
-       android:layout_height="wrap_content"
-       android:name="com.example.eliaspaulino.gileade.fragmentos.FragmentoCalendario"
-       tools:layout="@layout/fragment_fragmento_calendario"
-       android:layout="@layout/fragment_fragmento_calendario">
-   </fragment>
+    <FrameLayout
+        android:elevation="4dp"
+        android:id="@+id/fragmentoCalendario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    </FrameLayout>
 </LinearLayout>

@@ -86,7 +86,7 @@ public class FragmentoCalendario extends Fragment {
         listaCalendario.setAdapter(calendarioAdaptador);
         listaCalendario.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
 
-        //setarDiaSemana(getArguments().getInt("dia"));
+        setarDiaSemana(getArguments().getInt("dia"));
 
         return minhaView;
     }

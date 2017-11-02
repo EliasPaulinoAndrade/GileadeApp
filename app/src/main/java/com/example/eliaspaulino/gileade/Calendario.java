@@ -37,7 +37,7 @@ public class Calendario extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        //trocarDia(0);
+        trocarDia(0);
         calendarioExpandido = false;
     }
     private void trocarDia(Integer dia){
@@ -55,7 +55,6 @@ public class Calendario extends AppCompatActivity {
         trocarDia(0);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragmentoSemanas, fragment);
-        transaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out);
         transaction.commit();
     }
     public void diaClique(View view){
