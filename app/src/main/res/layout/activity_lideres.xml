@@ -7,27 +7,8 @@
     android:background="@color/bege"
     android:orientation="vertical"
     tools:context="com.example.eliaspaulino.gileade.Pgs">
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/my_toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:contentInsetLeft="0dp"
-        app:contentInsetStart="0dp"
-        android:elevation="4dp"
-        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
-        <TextView
-            android:layout_marginRight="?attr/actionBarSize"
-            android:id="@+id/main_toolbar_title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="werw"
-            android:textColor="@color/branco"
-            android:textAllCaps="true"
-            android:layout_gravity="center"
-            android:gravity="center" />
-    </android.support.v7.widget.Toolbar>
+    <include
+        layout="@layout/tool_bar"></include>
     <FrameLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

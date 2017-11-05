@@ -1,20 +1,37 @@
 package com.example.eliaspaulino.gileade.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+import java.util.Date;
+
 /**
  * Created by Elias on 31/10/2017.
  */
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Evento {
+    private Integer id;
     private String titulo;
     private String descricao;
-    private String hora;
-    private String data;
+    private Date inicio;
+    private Date fim;
 
-    public Evento(String titulo, String descricao, String hora, String data) {
+    public Evento() {
+    }
+
+    public Evento(Integer id, String titulo, String descricao, Date inicio, Date fim) {
+        this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
-        this.hora = hora;
-        this.data = data;
+        this.inicio = inicio;
+        this.fim = fim;
+    }
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getTitulo() {
@@ -33,19 +50,19 @@ public class Evento {
         this.descricao = descricao;
     }
 
-    public String getHora() {
-        return hora;
+    public Date getInicio() {
+        return inicio;
     }
 
-    public void setHora(String hora) {
-        this.hora = hora;
+    public void setInicio(Date inicio) {
+        this.inicio = inicio;
     }
 
-    public String getData() {
-        return data;
+    public Date getFim() {
+        return fim;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setFim(Date fim) {
+        this.fim = fim;
     }
 }

@@ -38,6 +38,13 @@
                     android:text="Caros amigos, a valorização de fatores subjetivos promove a alavancagem do fluxo de informações. "/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/imagemCarregamento"
+            android:paddingTop="90dp"
+            android:layout_gravity="center"
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
         <android.support.v7.widget.RecyclerView
             android:paddingTop="90dp"
             android:clipToPadding="false"

@@ -11,6 +11,7 @@ import com.example.eliaspaulino.gileade.R;
 import com.example.eliaspaulino.gileade.models.Evento;
 import com.example.eliaspaulino.gileade.models.Lider;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -36,14 +37,15 @@ public class EventosAdaptador extends RecyclerView.Adapter<PgAdaptador.Segurador
     @Override
     public void onBindViewHolder(PgAdaptador.Segurador holder, int position) {
         View view = holder.view;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm  dd/M");
         TextView titulo = (TextView) view.findViewById(R.id.titulo);
         TextView descricao = (TextView) view.findViewById(R.id.descricao);
-        TextView hora = (TextView) view.findViewById(R.id.hora);
-        TextView data = (TextView) view.findViewById(R.id.data);
+        TextView inicio = (TextView) view.findViewById(R.id.inicio);
+        TextView fim = (TextView) view.findViewById(R.id.fim);
         titulo.setText(dados.get(position).getTitulo());
         descricao.setText(dados.get(position).getDescricao());
-        hora.setText(dados.get(position).getHora());
-        data.setText(dados.get(position).getData());
+        inicio.setText(dateFormat.format(dados.get(position).getInicio()));
+        fim.setText(dateFormat.format(dados.get(position).getFim()));
     }
 
     @Override

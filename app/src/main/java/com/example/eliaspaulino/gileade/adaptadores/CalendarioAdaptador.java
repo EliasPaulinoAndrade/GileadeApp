@@ -8,9 +8,9 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.eliaspaulino.gileade.R;
-import com.example.eliaspaulino.gileade.models.HorarioDia;
-import com.example.eliaspaulino.gileade.models.Lider;
+import com.example.eliaspaulino.gileade.models.EventoSemanal;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
 /**
@@ -18,10 +18,10 @@ import java.util.ArrayList;
  */
 
 public class CalendarioAdaptador extends RecyclerView.Adapter<CalendarioAdaptador.Segurador>  {
-    private ArrayList<HorarioDia> dados;
+    private ArrayList<EventoSemanal> dados;
     private Context ctx;
 
-    public CalendarioAdaptador(ArrayList<HorarioDia> dados, Context ctx) {
+    public CalendarioAdaptador(ArrayList<EventoSemanal> dados, Context ctx) {
         this.dados = dados;
         this.ctx = ctx;
     }
@@ -36,14 +36,15 @@ public class CalendarioAdaptador extends RecyclerView.Adapter<CalendarioAdaptado
     @Override
     public void onBindViewHolder(Segurador holder, int position) {
         View view = holder.view;
+        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
         TextView titulo = (TextView) view.findViewById(R.id.titulo);
         TextView descricao = (TextView) view.findViewById(R.id.descricao);
         TextView inicio = (TextView) view.findViewById(R.id.horaInicio);
         TextView fim = (TextView) view.findViewById(R.id.horafim);
         titulo.setText(dados.get(position).getTitulo());
         descricao.setText(dados.get(position).getDescricao());
-        inicio.setText(dados.get(position).getInicio());
-        fim.setText(dados.get(position).getFim());
+        inicio.setText(dateFormat.format(dados.get(position).getHorainicio()));
+        fim.setText(dateFormat.format(dados.get(position).getHorafim()));
     }
 
     @Override

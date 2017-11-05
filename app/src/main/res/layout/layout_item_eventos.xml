@@ -37,19 +37,18 @@
     Caros amigos, a valorização de fatores  subjetivos
     promove a alavancagem do fluxo de informações."/>
                 <TextView
-                    android:id="@+id/hora"
+                    android:id="@+id/inicio"
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="12:30 as 13:30"
+                    android:text="12:30 17/12"
                     android:textStyle="bold"
                     android:textColor="@color/azulescuro" />
                 <TextView
-                    android:id="@+id/data"
+                    android:id="@+id/fim"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textStyle="bold"
-                    android:text="17/06/96"
+                    android:text="13:30 17/12"
                     android:textColor="@color/azulescuro"/>
             </LinearLayout>
         </LinearLayout>
