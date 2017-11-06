@@ -30,7 +30,7 @@ public class Pgs extends AppCompatActivity {
         toolbar.setBackgroundColor(getResources().getColor(R.color.azulescuro));
         toolbar.setNavigationIcon(getResources().getDrawable(R.mipmap.voltaricon));
         titulo = (TextView) findViewById(R.id.main_toolbar_title);
-        titulo.setText("PG's");
+        titulo.setText(getResources().getString(R.string.titulo_pgs_actionbar));
         listaFotosPgs = (RecyclerView) findViewById(R.id.listaFotos);
         listaFotosPgs2 = (RecyclerView) findViewById(R.id.listaFotos2);
         setSupportActionBar(toolbar);

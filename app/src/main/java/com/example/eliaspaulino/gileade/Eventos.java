@@ -33,6 +33,7 @@ import java.util.Arrays;
 import java.util.Date;
 
 public class Eventos extends AppCompatActivity implements Response.ErrorListener, Response.Listener<String> {
+    private static final String SERVER_END_POINT = "eventos";
 
     private TextView titulo;
     private Toolbar toolbar;
@@ -55,7 +56,7 @@ public class Eventos extends AppCompatActivity implements Response.ErrorListener
         toolbar.setBackgroundColor(getResources().getColor(R.color.azulescuro));
         toolbar.setNavigationIcon(getResources().getDrawable(R.mipmap.voltaricon));
         titulo = (TextView) findViewById(R.id.main_toolbar_title);
-        titulo.setText("EVENTOS");
+        titulo.setText(getResources().getString(R.string.titulo_eventos_actionbar));
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -73,12 +74,11 @@ public class Eventos extends AppCompatActivity implements Response.ErrorListener
         listaEventos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
         if(eventos.size() == 0){
             informeVazio.setVisibility(View.VISIBLE);
-            Toast.makeText(this, "iei", Toast.LENGTH_LONG).show();
         }
     }
     private void buscarEventos(){
         imagemCarregamento.setVisibility(View.VISIBLE);
-        StringRequest stringRequest = new Buscador(Request.Method.GET, "eventos", this, this );
+        StringRequest stringRequest = new Buscador(Request.Method.GET, SERVER_END_POINT, this, this );
         queue.add(stringRequest);
     }
     public void onResponse(String response){
@@ -96,9 +96,9 @@ public class Eventos extends AppCompatActivity implements Response.ErrorListener
         mostrarErros();
     }
     private void mostrarErros(){
-        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Problemas De Conexão", Snackbar.LENGTH_INDEFINITE);
+        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), getResources().getString(R.string.conexao_erro), Snackbar.LENGTH_INDEFINITE);
         snackbar.getView().setBackgroundColor(getResources().getColor(R.color.marrom));
-        snackbar.setAction("recarregar", new View.OnClickListener() {
+        snackbar.setAction(getResources().getString(R.string.conexao_erro_action), new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 buscarEventos();

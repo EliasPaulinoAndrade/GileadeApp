@@ -7,6 +7,21 @@
     <string name="titulo_calendario_actionbar">
         calendário
     </string>
+    <string name="titulo_eventos_actionbar">
+        eventos
+    </string>
+    <string name="titulo_igreja_actionbar">
+        igreja
+    </string>
+    <string name="titulo_lideres_actionbar">
+        lideres
+    </string>
+    <string name="titulo_pgs_actionbar">
+        pg's
+    </string>
+    <string name="nome_completo_igreja">
+        GILEDADE GRANJA PORTUGAL
+    </string>
 
     <array name="dias_semana">
         <item>
@@ -36,5 +51,8 @@
     </string>
     <string name="conexao_erro_action">
         recarregar
+    </string>
+    <string name="informe_nenhum_registro">
+        NENHUM REGISTRADO
     </string>
 </resources>

@@ -24,7 +24,6 @@ public class Inicio extends Activity {
         titulo.getLayoutParams().width = LinearLayout.LayoutParams.WRAP_CONTENT;
         ViewCompat.setElevation(titulo, 5);
         titulo.requestLayout();
-        Log.d("eiman", "tituloPaginaClique: ");
     }
     private void animacaoCircular(View view, int centerx, int centery){
         float finalRadius = Math.max(view.getWidth(), view.getHeight());

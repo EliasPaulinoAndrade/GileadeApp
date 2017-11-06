@@ -19,7 +19,7 @@ public class Igreja extends AppCompatActivity {
         toolbar.setBackgroundColor(getResources().getColor(R.color.azulescuro));
         toolbar.setNavigationIcon(getResources().getDrawable(R.mipmap.voltaricon));
         titulo = (TextView) findViewById(R.id.main_toolbar_title);
-        titulo.setText("IGREJA");
+        titulo.setText(getResources().getString(R.string.titulo_igreja_actionbar));
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);

@@ -34,6 +34,7 @@ import java.util.Arrays;
 
 
 public class FragmentoCalendario extends Fragment implements Response.ErrorListener, Response.Listener<String> {
+    private static final String SERVER_END_POINT = "eventos_semanais";
 
     private RecyclerView listaCalendario;
     private CalendarioAdaptador calendarioAdaptador;
@@ -92,7 +93,7 @@ public class FragmentoCalendario extends Fragment implements Response.ErrorListe
     }
     private void buscarEventosSemanais(){
         imagemCarregamento.setVisibility(View.VISIBLE);
-        StringRequest stringRequest = new Buscador(Request.Method.GET, "eventos_semanais/" + nDiaSemana, this, this );
+        StringRequest stringRequest = new Buscador(Request.Method.GET, SERVER_END_POINT + "/" + nDiaSemana, this, this);
         queue.add(stringRequest);
     }
     @Override

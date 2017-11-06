@@ -36,6 +36,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Lideres extends AppCompatActivity implements Response.ErrorListener, Response.Listener<String> {
+    private static final String SERVER_END_POINT = "liderancas";
+
     private TextView titulo;
     private Toolbar toolbar;
     private List<FragmentoLideres> fragmentoLidereslist;
@@ -52,7 +54,7 @@ public class Lideres extends AppCompatActivity implements Response.ErrorListener
         toolbar.setNavigationIcon(getResources().getDrawable(R.mipmap.voltaricon));
         imagemCarregamento = findViewById(R.id.imagemCarregamento);
         titulo = (TextView) findViewById(R.id.main_toolbar_title);
-        titulo.setText("LIDERES");
+        titulo.setText(getResources().getString(R.string.titulo_lideres_actionbar));
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -67,7 +69,7 @@ public class Lideres extends AppCompatActivity implements Response.ErrorListener
     }
     private void buscarLiderancas(){
         imagemCarregamento.setVisibility(View.VISIBLE);
-        StringRequest stringRequest = new Buscador(Request.Method.GET, "liderancas", this, this );
+        StringRequest stringRequest = new Buscador(Request.Method.GET, SERVER_END_POINT, this, this );
         queue.add(stringRequest);
     }
     private void adicionarFragmento(Lideranca lideranca){
@@ -105,15 +107,15 @@ public class Lideres extends AppCompatActivity implements Response.ErrorListener
         }
     }
     private void mostrarErros(){
-        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), "Problemas De Conexão", Snackbar.LENGTH_INDEFINITE);
+        Snackbar snackbar = Snackbar.make(findViewById(android.R.id.content), getResources().getString(R.string.conexao_erro), Snackbar.LENGTH_INDEFINITE);
         snackbar.getView().setBackgroundColor(getResources().getColor(R.color.marrom));
-        snackbar.setAction("recarregar", new View.OnClickListener() {
+        snackbar.setAction(getResources().getString(R.string.conexao_erro_action), new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 buscarLiderancas();
             }
         })
-                .setActionTextColor(getResources().getColor(R.color.azulclaro))
-                .show();
+        .setActionTextColor(getResources().getColor(R.color.azulclaro))
+        .show();
     }
 }

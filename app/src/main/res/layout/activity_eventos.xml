@@ -62,6 +62,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:textColor="@color/marrom"
-            android:text="NENHUM EVENTO REGISTRADO"/>
+            android:textAllCaps="true"
+            android:text="@string/informe_nenhum_registro"/>
     </FrameLayout>
 </LinearLayout>
