@@ -1,6 +1,7 @@
 package com.example.eliaspaulino.gileade.fragmentos;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -79,14 +80,17 @@ public class FragmentoCalendario extends Fragment implements Response.ErrorListe
 
         minhaView =  inflater.inflate(R.layout.fragment_fragmento_calendario, container, false);
 
-        Bundle argumentos = getArguments();
-        if(argumentos == null)
-            return minhaView;
+        return minhaView;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
 
         nDiaSemana = getArguments().getInt("dia");
-        diaSemana = (TextView) minhaView.findViewById(R.id.diaSemanaTopo);
-        listaCalendario = (RecyclerView) minhaView.findViewById(R.id.listaHoras);
-        imagemCarregamento = minhaView.findViewById(R.id.imagemCarregamento);
+        diaSemana = (TextView) getActivity().findViewById(R.id.diaSemanaTopo);
+        listaCalendario = (RecyclerView) getActivity().findViewById(R.id.listaHoras);
+        imagemCarregamento = getActivity().findViewById(R.id.imagemCarregamento);
 
         setarDiaSemana(nDiaSemana);
 
@@ -94,8 +98,8 @@ public class FragmentoCalendario extends Fragment implements Response.ErrorListe
         mapper = new ObjectMapper();
 
         buscarEventosSemanais();
-        return minhaView;
     }
+
     private void inicializarLista(ArrayList<EventoSemanal> eventosSemanais){
         this.eventosSemanais = eventosSemanais;
         calendarioAdaptador = new CalendarioAdaptador(eventosSemanais, getActivity());
