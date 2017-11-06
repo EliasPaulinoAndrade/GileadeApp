@@ -42,6 +42,7 @@ public class Eventos extends AppCompatActivity implements Response.ErrorListener
     private RequestQueue queue;
     private ObjectMapper mapper;
     private View imagemCarregamento;
+    private View informeVazio;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +51,7 @@ public class Eventos extends AppCompatActivity implements Response.ErrorListener
         toolbar = (Toolbar) findViewById(R.id.my_toolbar);
         listaEventos = (RecyclerView) findViewById(R.id.listaEventos);
         imagemCarregamento = findViewById(R.id.imagemCarregamento);
+        informeVazio = findViewById(R.id.informeVazio);
         toolbar.setBackgroundColor(getResources().getColor(R.color.azulescuro));
         toolbar.setNavigationIcon(getResources().getDrawable(R.mipmap.voltaricon));
         titulo = (TextView) findViewById(R.id.main_toolbar_title);
@@ -69,6 +71,10 @@ public class Eventos extends AppCompatActivity implements Response.ErrorListener
         eventosAdaptador = new EventosAdaptador(eventos, this);
         listaEventos.setAdapter(eventosAdaptador);
         listaEventos.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
+        if(eventos.size() == 0){
+            informeVazio.setVisibility(View.VISIBLE);
+            Toast.makeText(this, "iei", Toast.LENGTH_LONG).show();
+        }
     }
     private void buscarEventos(){
         imagemCarregamento.setVisibility(View.VISIBLE);

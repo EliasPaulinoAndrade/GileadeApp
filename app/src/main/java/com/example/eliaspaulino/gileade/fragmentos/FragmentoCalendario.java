@@ -1,5 +1,6 @@
 package com.example.eliaspaulino.gileade.fragmentos;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
@@ -43,6 +44,7 @@ public class FragmentoCalendario extends Fragment implements Response.ErrorListe
     private ObjectMapper mapper;
     private Integer nDiaSemana;
     private View imagemCarregamento;
+    private View informeVazio;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -50,29 +52,7 @@ public class FragmentoCalendario extends Fragment implements Response.ErrorListe
 
     }
     private void setarDiaSemana(Integer dia){
-        switch (dia){
-            case 0:
-                diaSemana.setText("Segunda-Feira");
-                break;
-            case 1:
-                diaSemana.setText("Terça-Feira");
-                break;
-            case 2:
-                diaSemana.setText("Quarta-Feira");
-                break;
-            case 3:
-                diaSemana.setText("Quinta-Feira");
-                break;
-            case 4:
-                diaSemana.setText("Sexta-Feira");
-                break;
-            case 5:
-                diaSemana.setText("Sábado");
-                break;
-            case 6:
-                diaSemana.setText("Domingo");
-                break;
-        }
+        diaSemana.setText(getResources().getStringArray(R.array.dias_semana)[dia]);
     }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -91,6 +71,7 @@ public class FragmentoCalendario extends Fragment implements Response.ErrorListe
         diaSemana = (TextView) getActivity().findViewById(R.id.diaSemanaTopo);
         listaCalendario = (RecyclerView) getActivity().findViewById(R.id.listaHoras);
         imagemCarregamento = getActivity().findViewById(R.id.imagemCarregamento);
+        informeVazio = getActivity().findViewById(R.id.informeVazio);
 
         setarDiaSemana(nDiaSemana);
 
@@ -105,6 +86,9 @@ public class FragmentoCalendario extends Fragment implements Response.ErrorListe
         calendarioAdaptador = new CalendarioAdaptador(eventosSemanais, getActivity());
         listaCalendario.setAdapter(calendarioAdaptador);
         listaCalendario.setLayoutManager(new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false));
+        if(eventosSemanais.size() == 0){
+            informeVazio.setVisibility(View.VISIBLE);
+        }
     }
     private void buscarEventosSemanais(){
         imagemCarregamento.setVisibility(View.VISIBLE);
@@ -128,9 +112,10 @@ public class FragmentoCalendario extends Fragment implements Response.ErrorListe
         }
     }
     private void mostrarErros(){
-        Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), "Problemas De Conexão", Snackbar.LENGTH_INDEFINITE);
-        snackbar.getView().setBackgroundColor(getResources().getColor(R.color.marrom));
-            snackbar.setAction("recarregar", new View.OnClickListener() {
+        try {
+            Snackbar snackbar = Snackbar.make(getActivity().findViewById(android.R.id.content), getResources().getString(R.string.conexao_erro), Snackbar.LENGTH_INDEFINITE);
+            snackbar.getView().setBackgroundColor(getResources().getColor(R.color.marrom));
+            snackbar.setAction(getResources().getString(R.string.conexao_erro_action), new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     buscarEventosSemanais();
@@ -138,5 +123,8 @@ public class FragmentoCalendario extends Fragment implements Response.ErrorListe
             })
             .setActionTextColor(getResources().getColor(R.color.azulclaro))
             .show();
+        }catch (Exception e){
+            //fragment foi trocado
+        }
     }
 }

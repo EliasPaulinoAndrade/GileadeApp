@@ -11,7 +11,7 @@ import com.android.volley.toolbox.StringRequest;
 
 public class Buscador  extends StringRequest{
     private ViewGroup parent;
-    private static final String SERVER_HOST = "192.168.0.7";
+    private static final String SERVER_HOST = "10.1.100.111";
     private static final String HOST_PORT = "8000";
     public Buscador(int method, String route, Response.Listener<String> listener, Response.ErrorListener errorListener) {
         super(method, "http://" + SERVER_HOST + ":" + HOST_PORT + "/" + route, listener, errorListener);

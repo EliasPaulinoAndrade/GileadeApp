@@ -1,16 +1,32 @@
 package com.example.eliaspaulino.gileade.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 /**
  * Created by Elias on 31/10/2017.
  */
 
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Lider {
+    private Integer id;
     private String nome;
-    private String numero;
+    private String telefone;
 
-    public Lider(String nome, String numero) {
+    public Lider() {
+    }
+
+    public Lider(Integer id, String nome, String telefone) {
+        this.id = id;
         this.nome = nome;
-        this.numero = numero;
+        this.telefone = telefone;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -21,11 +37,11 @@ public class Lider {
         this.nome = nome;
     }
 
-    public String getNumero() {
-        return numero;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
     }
 }

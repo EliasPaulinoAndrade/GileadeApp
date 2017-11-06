@@ -39,7 +39,7 @@ public class LideresAdaptador extends RecyclerView.Adapter<PgAdaptador.Segurador
         TextView nome = (TextView) view.findViewById(R.id.nome);
         TextView num = (TextView) view.findViewById(R.id.numero);
         nome.setText(dados.get(position).getNome());
-        num.setText(dados.get(position).getNumero());
+        num.setText(dados.get(position).getTelefone());
     }
 
     @Override

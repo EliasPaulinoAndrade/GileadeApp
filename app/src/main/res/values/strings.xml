@@ -3,4 +3,38 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="titulo_calendario_actionbar">
+        calendário
+    </string>
+
+    <array name="dias_semana">
+        <item>
+            Segunda-Feira
+        </item>
+        <item>
+            Terça-Feira
+        </item>
+        <item>
+            Quarta-Feira
+        </item>
+        <item>
+            Quinta-Feira
+        </item>
+        <item>
+            Sexta-Feira
+        </item>
+        <item>
+            Sabado-Feira
+        </item>
+        <item>
+            Domingo-Feira
+        </item>
+    </array>
+    <string name="conexao_erro">
+        Problemas De Conexão
+    </string>
+    <string name="conexao_erro_action">
+        recarregar
+    </string>
 </resources>

@@ -32,7 +32,7 @@ public class Calendario extends AppCompatActivity {
         toolbar.setBackgroundColor(getResources().getColor(R.color.azulescuro));
         toolbar.setNavigationIcon(getResources().getDrawable(R.mipmap.voltaricon));
         titulo = (TextView) findViewById(R.id.main_toolbar_title);
-        titulo.setText("CALENDÁRIO");
+        titulo.setText(getResources().getString(R.string.titulo_calendario_actionbar));
         setSupportActionBar(toolbar);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
