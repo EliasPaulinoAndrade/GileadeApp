@@ -15,17 +15,20 @@ public class Evento {
     private String descricao;
     private Date inicio;
     private Date fim;
+    private String urlimagem;
 
     public Evento() {
     }
 
-    public Evento(Integer id, String titulo, String descricao, Date inicio, Date fim) {
+    public Evento(Integer id, String titulo, String descricao, Date inicio, Date fim, String urlimagem) {
         this.id = id;
         this.titulo = titulo;
         this.descricao = descricao;
         this.inicio = inicio;
         this.fim = fim;
+        this.urlimagem = urlimagem;
     }
+
     public Integer getId() {
         return id;
     }
@@ -64,5 +67,13 @@ public class Evento {
 
     public void setFim(Date fim) {
         this.fim = fim;
+    }
+
+    public String getUrlimagem() {
+        return urlimagem;
+    }
+
+    public void setUrlimagem(String urlimagem) {
+        this.urlimagem = urlimagem;
     }
 }

@@ -1,16 +1,25 @@
 package com.example.eliaspaulino.gileade.adaptadores;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.android.volley.toolbox.NetworkImageView;
 import com.example.eliaspaulino.gileade.R;
 import com.example.eliaspaulino.gileade.models.Evento;
 import com.example.eliaspaulino.gileade.models.Lider;
+import com.squareup.picasso.Picasso;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 
@@ -42,10 +51,14 @@ public class EventosAdaptador extends RecyclerView.Adapter<PgAdaptador.Segurador
         TextView descricao = (TextView) view.findViewById(R.id.descricao);
         TextView inicio = (TextView) view.findViewById(R.id.inicio);
         TextView fim = (TextView) view.findViewById(R.id.fim);
+        ImageView imagem = (ImageView) view.findViewById(R.id.imagem);
+
         titulo.setText(dados.get(position).getTitulo());
         descricao.setText(dados.get(position).getDescricao());
         inicio.setText(dateFormat.format(dados.get(position).getInicio()));
         fim.setText(dateFormat.format(dados.get(position).getFim()));
+
+        Picasso.with(ctx).load("http://10.1.100.111:8000/images/eventos/" + dados.get(position).getUrlimagem()).into(imagem);
     }
 
     @Override
