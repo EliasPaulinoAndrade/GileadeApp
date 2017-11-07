@@ -11,14 +11,16 @@ public class Lider {
     private Integer id;
     private String nome;
     private String telefone;
+    private String urlimagem;
 
     public Lider() {
     }
 
-    public Lider(Integer id, String nome, String telefone) {
+    public Lider(Integer id, String nome, String telefone, String urlimagem) {
         this.id = id;
         this.nome = nome;
         this.telefone = telefone;
+        this.urlimagem = urlimagem;
     }
 
     public Integer getId() {
@@ -43,5 +45,13 @@ public class Lider {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getUrlimagem() {
+        return urlimagem;
+    }
+
+    public void setUrlimagem(String urlimagem) {
+        this.urlimagem = urlimagem;
     }
 }

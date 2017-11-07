@@ -15,6 +15,7 @@ import com.android.volley.toolbox.NetworkImageView;
 import com.example.eliaspaulino.gileade.R;
 import com.example.eliaspaulino.gileade.models.Evento;
 import com.example.eliaspaulino.gileade.models.Lider;
+import com.example.eliaspaulino.gileade.utilitarios.Buscador;
 import com.squareup.picasso.Picasso;
 
 import java.io.IOException;
@@ -28,6 +29,8 @@ import java.util.ArrayList;
  */
 
 public class EventosAdaptador extends RecyclerView.Adapter<PgAdaptador.Segurador>{
+    private static final String SERVER_END_POINT = "eventos";
+
     private ArrayList<Evento> dados;
     private Context ctx;
 
@@ -46,6 +49,7 @@ public class EventosAdaptador extends RecyclerView.Adapter<PgAdaptador.Segurador
     @Override
     public void onBindViewHolder(PgAdaptador.Segurador holder, int position) {
         View view = holder.view;
+        Buscador<Evento> buscador = new Buscador<>(ctx, SERVER_END_POINT);
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm  dd/M");
         TextView titulo = (TextView) view.findViewById(R.id.titulo);
         TextView descricao = (TextView) view.findViewById(R.id.descricao);
@@ -58,7 +62,7 @@ public class EventosAdaptador extends RecyclerView.Adapter<PgAdaptador.Segurador
         inicio.setText(dateFormat.format(dados.get(position).getInicio()));
         fim.setText(dateFormat.format(dados.get(position).getFim()));
 
-        Picasso.with(ctx).load("http://10.1.100.111:8000/images/eventos/" + dados.get(position).getUrlimagem()).into(imagem);
+        buscador.findImage(dados.get(position).getUrlimagem(), imagem);
     }
 
     @Override

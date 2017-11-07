@@ -4,45 +4,29 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.LinearSnapHelper;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SnapHelper;
 import android.support.v7.widget.Toolbar;
-import android.view.MotionEvent;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
-import com.android.volley.toolbox.Volley;
-import com.example.eliaspaulino.gileade.R;
-import com.example.eliaspaulino.gileade.adaptadores.LideresAdaptador;
 import com.example.eliaspaulino.gileade.fragmentos.FragmentoLideres;
-import com.example.eliaspaulino.gileade.models.Evento;
-import com.example.eliaspaulino.gileade.models.Lider;
 import com.example.eliaspaulino.gileade.models.Lideranca;
 import com.example.eliaspaulino.gileade.singletons.LiderancaSingleton;
 import com.example.eliaspaulino.gileade.utilitarios.Buscador;
-import com.example.eliaspaulino.gileade.utilitarios.Mapeador;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Lideres extends AppCompatActivity implements Response.ErrorListener, Response.Listener<String> {
     private static final String SERVER_END_POINT = "liderancas";
 
+    private Buscador<Lideranca> liderancaBuscador;
     private TextView titulo;
     private Toolbar toolbar;
     private List<FragmentoLideres> fragmentoLidereslist;
-    private RequestQueue queue;
-    private ObjectMapper mapper;
     private View imagemCarregamento;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,17 +44,12 @@ public class Lideres extends AppCompatActivity implements Response.ErrorListener
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
-        queue = Volley.newRequestQueue(this);
-        mapper = new Mapeador();
+        liderancaBuscador = new Buscador<>(this, SERVER_END_POINT);
 
         fragmentoLidereslist = new ArrayList<>();
 
-        buscarLiderancas();
-    }
-    private void buscarLiderancas(){
-        imagemCarregamento.setVisibility(View.VISIBLE);
-        StringRequest stringRequest = new Buscador(Request.Method.GET, SERVER_END_POINT, this, this );
-        queue.add(stringRequest);
+        liderancaBuscador.find(this, this);
+
     }
     private void adicionarFragmento(Lideranca lideranca){
         LiderancaSingleton.getInstancia().getLiderancas().put(lideranca.getId(), lideranca);
@@ -85,6 +64,7 @@ public class Lideres extends AppCompatActivity implements Response.ErrorListener
     }
 
     private void separarLiderancas(ArrayList<Lideranca> liderancas){
+
         for(Lideranca lideranca : liderancas){
             adicionarFragmento(lideranca);
         }
@@ -99,7 +79,8 @@ public class Lideres extends AppCompatActivity implements Response.ErrorListener
     public void onResponse(String response) {
         imagemCarregamento.setVisibility(View.GONE);
         try {
-            ArrayList<Lideranca> responseLiderancas =  new ArrayList<>(Arrays.asList(mapper.readValue(response, Lideranca[].class)));
+            Log.d("TESTANDO", "onResponse: " + response);
+            ArrayList<Lideranca> responseLiderancas =  liderancaBuscador.translate(response, new Lideranca[0]);
             separarLiderancas(responseLiderancas);
         } catch (IOException e) {
             mostrarErros();
@@ -112,7 +93,7 @@ public class Lideres extends AppCompatActivity implements Response.ErrorListener
         snackbar.setAction(getResources().getString(R.string.conexao_erro_action), new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                buscarLiderancas();
+                liderancaBuscador.find();
             }
         })
         .setActionTextColor(getResources().getColor(R.color.azulclaro))
