@@ -49,7 +49,7 @@ public class Lideres extends AppCompatActivity implements Response.ErrorListener
         fragmentoLidereslist = new ArrayList<>();
 
         liderancaBuscador.find(this, this);
-
+        imagemCarregamento.setVisibility(View.VISIBLE);
     }
     private void adicionarFragmento(Lideranca lideranca){
         LiderancaSingleton.getInstancia().getLiderancas().put(lideranca.getId(), lideranca);

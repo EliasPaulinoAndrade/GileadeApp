@@ -50,6 +50,7 @@ public class Eventos extends AppCompatActivity implements Response.ErrorListener
         eventoBuscador = new Buscador<>(this, SERVER_END_POINT);
 
         eventoBuscador.find(this, this);
+        imagemCarregamento.setVisibility(View.VISIBLE);
     }
     private void inicializarLista(ArrayList<Evento> eventos){
         this.eventos = eventos;

@@ -66,6 +66,7 @@ public class FragmentoCalendario extends Fragment implements Response.ErrorListe
 
         buscador = new Buscador<>(getContext(), SERVER_END_POINT + "/" + nDiaSemana);
         buscador.find(this, this);
+        imagemCarregamento.setVisibility(View.VISIBLE);
     }
 
     private void inicializarLista(ArrayList<EventoSemanal> eventosSemanais) {
