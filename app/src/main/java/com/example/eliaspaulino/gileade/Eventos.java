@@ -47,6 +47,10 @@ public class Eventos extends AppCompatActivity implements Response.ErrorListener
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
+        listaEventos.setItemViewCacheSize(20);
+        listaEventos.setDrawingCacheEnabled(true);
+        listaEventos.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_HIGH);
+
         eventoBuscador = new Buscador<>(this, SERVER_END_POINT);
 
         eventoBuscador.find(this, this);
@@ -81,6 +85,8 @@ public class Eventos extends AppCompatActivity implements Response.ErrorListener
         snackbar.setAction(getResources().getString(R.string.conexao_erro_action), new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                imagemCarregamento.setVisibility(View.VISIBLE);
                 eventoBuscador.find();
             }
         })

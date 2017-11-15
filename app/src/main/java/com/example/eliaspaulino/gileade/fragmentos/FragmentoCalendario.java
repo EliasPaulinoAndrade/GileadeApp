@@ -101,6 +101,7 @@ public class FragmentoCalendario extends Fragment implements Response.ErrorListe
             snackbar.setAction(getResources().getString(R.string.conexao_erro_action), new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    imagemCarregamento.setVisibility(View.VISIBLE);
                     buscador.find();
                 }
             })

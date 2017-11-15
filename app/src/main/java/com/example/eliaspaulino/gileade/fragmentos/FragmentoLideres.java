@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.eliaspaulino.gileade.R;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 
 public class FragmentoLideres extends Fragment {
 
+    private TextView titulo;
     private RecyclerView listaLideres;
     private LideresAdaptador lideresAdaptador;
     private ArrayList<Lider> liders;
@@ -40,8 +42,10 @@ public class FragmentoLideres extends Fragment {
 
         View minhaView = inflater.inflate(R.layout.fragment_fragmento_lideres, container, false);
 
+        titulo = (TextView) minhaView.findViewById(R.id.nomelideranca);
         listaLideres = (RecyclerView) minhaView.findViewById(R.id.listaLideres);
         liders = LiderancaSingleton.getInstancia().getLiderancas().get(getArguments().getInt("lideranca_id")).getLideres();
+        titulo.setText(LiderancaSingleton.getInstancia().getLiderancas().get(getArguments().getInt("lideranca_id")).getNome());
 
         lideresAdaptador = new LideresAdaptador(liders, getContext());
         listaLideres.setAdapter(lideresAdaptador);

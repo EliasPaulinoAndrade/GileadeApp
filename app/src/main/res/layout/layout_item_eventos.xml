@@ -12,7 +12,7 @@
             <ImageView
                 android:id="@+id/imagem"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="200dp"
                 android:adjustViewBounds="true"
                 android:src="@drawable/teste" />
             <LinearLayout

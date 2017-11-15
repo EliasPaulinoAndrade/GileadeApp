@@ -93,6 +93,7 @@ public class Lideres extends AppCompatActivity implements Response.ErrorListener
         snackbar.setAction(getResources().getString(R.string.conexao_erro_action), new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                imagemCarregamento.setVisibility(View.VISIBLE);
                 liderancaBuscador.find();
             }
         })

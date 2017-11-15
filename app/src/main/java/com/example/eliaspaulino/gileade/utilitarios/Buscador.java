@@ -28,7 +28,7 @@ public class Buscador<MODEL> {
     private String endpoint;
     private Response.Listener listener;
     private Response.ErrorListener errorListener;
-    private static final String SERVER_HOST = "10.1.100.111";
+    private static final String SERVER_HOST = "192.168.0.7";
     private static final String HOST_PORT = "8000";
 
     public Buscador(Context context, String endpoint) {
@@ -41,7 +41,7 @@ public class Buscador<MODEL> {
         return "http://" + SERVER_HOST + ":" + HOST_PORT + "/" + endpoint;
     }
     private String constructImgUrl(String imageName){
-        return "http://" + SERVER_HOST + ":" + HOST_PORT + "/images/" + endpoint + "/" + imageName;
+        return "http://" + SERVER_HOST + ":" + HOST_PORT + "/storage/images/" + endpoint + "/" + imageName;
     }
     public ArrayList<MODEL> translate(String response, Object[] objects) throws IOException {
         ArrayList<MODEL> responseEventos;
@@ -65,6 +65,6 @@ public class Buscador<MODEL> {
         queue.add(stringRequest);
     }
     public void findImage(String imgName, ImageView imagem){
-        Picasso.with(context).load(constructImgUrl(imgName)).into(imagem);
+        Picasso.with(context).load(constructImgUrl(imgName)).fit().into(imagem);
     }
 }

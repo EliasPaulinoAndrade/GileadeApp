@@ -29,13 +29,13 @@
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
                     android:adjustViewBounds="true"
-                    android:src="@drawable/pgsn"/>
+                    android:src="@drawable/eventosn"/>
                 <TextView
                     android:layout_marginLeft="10dp"
                     android:textColor="@color/marrom"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Caros amigos, a valorização de fatores subjetivos promove a alavancagem do fluxo de informações. "/>
+                    android:text="@string/descricao_eventos"/>
             </LinearLayout>
         </android.support.v7.widget.CardView>
         <com.wang.avi.AVLoadingIndicatorView

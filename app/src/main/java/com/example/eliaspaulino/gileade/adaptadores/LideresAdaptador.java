@@ -1,6 +1,7 @@
 package com.example.eliaspaulino.gileade.adaptadores;
 
 import android.content.Context;
+import android.provider.UserDictionary;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -46,9 +47,8 @@ public class LideresAdaptador extends RecyclerView.Adapter<PgAdaptador.Segurador
         TextView nome = (TextView) view.findViewById(R.id.nome);
         TextView num = (TextView) view.findViewById(R.id.numero);
         CircleImageView imageView = (CircleImageView) view.findViewById(R.id.imagem);
-
-        nome.setText(dados.get(position).getNome());
-        num.setText(dados.get(position).getTelefone());
+        nome.setText(dados.get(position).getNome().toUpperCase());
+        num.setText(dados.get(position).getTelefone().toUpperCase());
 
         buscador.findImage(dados.get(position).getUrlimagem(), imageView);
     }

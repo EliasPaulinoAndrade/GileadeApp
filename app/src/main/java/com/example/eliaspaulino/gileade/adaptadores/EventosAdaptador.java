@@ -50,15 +50,15 @@ public class EventosAdaptador extends RecyclerView.Adapter<PgAdaptador.Segurador
     public void onBindViewHolder(PgAdaptador.Segurador holder, int position) {
         View view = holder.view;
         Buscador<Evento> buscador = new Buscador<>(ctx, SERVER_END_POINT);
-        SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm  dd/M");
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/M - HH:mm");
         TextView titulo = (TextView) view.findViewById(R.id.titulo);
         TextView descricao = (TextView) view.findViewById(R.id.descricao);
         TextView inicio = (TextView) view.findViewById(R.id.inicio);
         TextView fim = (TextView) view.findViewById(R.id.fim);
         ImageView imagem = (ImageView) view.findViewById(R.id.imagem);
 
-        titulo.setText(dados.get(position).getTitulo());
-        descricao.setText(dados.get(position).getDescricao());
+        titulo.setText(dados.get(position).getTitulo().toUpperCase());
+        descricao.setText(dados.get(position).getDescricao().toUpperCase());
         inicio.setText(dateFormat.format(dados.get(position).getInicio()));
         fim.setText(dateFormat.format(dados.get(position).getFim()));
 
